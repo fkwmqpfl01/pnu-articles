@@ -1,7 +1,7 @@
 # pnu-articles
 
 >2023년 2학기 공학 작문 및 발표 수업에서 학습한 내용을 바탕으로 작문한 내용을 markdown을 이용해 기록합니다.
----
+
 ## Github Pages를 사용한 글쓰기
 
 GitHub Pages는 GitHub에서 제공하는 정적 웹사이트(static websites) 서비스 입니다. 많은 오픈 소스 프로젝트 및 개발자들이 GitHub Pages를 사용해서 자신의 글을 제시하고 있습니다. 그래서 GitHub Pages는 개발자들의 블로그 서비스라고도 불립니다.
