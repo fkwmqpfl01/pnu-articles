@@ -25,9 +25,7 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 
 &emsp; 2018년에는 딥러닝을 이용해서 CCTV 영상 내의 차량 및 보행자의 수를 정확히 검출하기 위한 기술 연구가 진행된 바 있다. 기존의 영상처리 알고리즘은 조도 변화와 화질 열화에 약한 성능을 보였기에, 딥러닝 알고리즘 중 CNN(Convolutional Neural Network, 합성곱 신경망)을 이용해 CCTV 영상 기반 차량 및 보행자 계수 정확성을 향상하고자 하는 움직임이 있었다. <br>   
 &emsp; "CCTV 영상 기반 딥 러닝을 이용한 차량 및 보행자 계수 방법" 논문에 따르면, CNN을 이용해 조도 변화에 민감하지 않은 객체 검출 기술을 구현할 수 있었다고 한다. 이 연구에서는 24의 convolution layer와 2개의 fully connected layer로 구성된 Darknet의 네트워크, Visual Studio 2015와 QT를 사용하며, 2대의 CCTV를 직접 설치하여 실험이 진행되었다. 또한 설치한 CCTV로부터 추출한 시간대별 샘플 데이터 1,941개와 다른 날짜의 시간대별 샘플 데이터 195개를 이용해 검증 데이터를 구성하였다. 사용된 딥러닝 알고리즘에 대한 실험 결과는 다음 표의 내용과 같다.    
-
-<center><span style="font-size: 85%">Table 1. CNN 알고리즘 적용 시 검출 성능 결과</span>
-<br><img src = "../images/table1.png"  width="80%" height="60%" alt ="CNN Performance Result"></center>  
+ 
 Table 1. CNN 알고리즘 적용 시 검출 성능 결과  
 
 | 대상 | | 차량  | | |보행자| |
@@ -49,6 +47,7 @@ Table 1. CNN 알고리즘 적용 시 검출 성능 결과
 Table 2. YOLOv4의 AP 결과
 
 | | AP~0.5:0.05:0.95~ | AP~50~ | AP~75~|
+| --- | --- | --- | --- |
 | car | 0.54 | 0.66 | 0.56 |
 | person |0.72 | 0.93 | 0.78 |
 | 평균(mAP) | 0.63 | 0.79 | 0.67 |  
