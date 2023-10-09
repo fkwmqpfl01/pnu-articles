@@ -80,6 +80,7 @@ Table 3. YOLO 알고리즘 적용 및 좌표계 변환 후 탐지된 객체 위�
 <span style="font-size: 85%">Table 4. 객체 검출 모델의 평균 정밀도 및 추론 시간 비교</span>  
 
 | 모델 | mAP<sub>50</sub> | 추론 시간(s) |
+| --- | --- | --- |
 | YOLOv5 | 0.909 | 15.2 |
 | YOLOv5+TRT32 | 0.909 | 2.9 |
 | YOLOv5+TRT16 |0.907 | 1.4 |  
