@@ -43,7 +43,6 @@ Table 1. CNN 알고리즘 적용 시 검출 성능 결과
 &emsp; 2021년에는 영상 분석을 위한 인공지능 기술인 YOLO(You Only Look Once) 알고리즘을 이용한 동적 객체 위치 추적에 대한 연구가 진행되었다. YOLO(Redmon,2016)는 객체 인식과 분류를 차례로 수행하는 CNN과 달리 인식과 분류를 한 번에 수행할 수 있는 모델로 실시간에 가까운 처리가 가능하다. <br>   
 &emsp; "CCTV 영상을 활용한 동적 객체의 위치 추적 및 시각화 방안" 논문에서 YOLO 알고리즘을 이용해 학습하고, 최소 사각형 형태 및 변환 행렬 기술을 통해 웹 기반 시각화까지 성공한 모습을 보여주었다. 이 연구에서는 Bochkovskiy et al.(2020)의 YOLOv4 모델 및 Kafka 서버, Python, JSON 포맷을 이용하며, 공공 데이터 포털의 개방된 CCTV 영상 데이터를 활용해 실험이 진행되었다. <br>    
 
-<center><br><span style="font-size: 85%">Table 2. YOLOv4의 AP 결과</span><br><img src = "../images/table2.png" width="70%" height="60%" alt="YOLOv4_AP_result"></center>  
 Table 2. YOLOv4의 AP 결과
 
 | | AP<sub>0.5:0.05:0.95</sub> | AP<sub>50</sub> | AP<sub>75</sub>|
@@ -55,7 +54,11 @@ Table 2. YOLOv4의 AP 결과
 &emsp; 위 표를 보면 표준 정밀도인 AP의 값이 0.60-0.80 사이로 높게 나타난 모습을 확인할 수 있다. 이후 YOLO의 성능 변화 여부를 판단하기 위해 IoU<a href="#footnote_4">4</a>의 값을 0.5로 설정한 mAP<sub>50</sub>의 값을 평균 정밀도의 값으로 고려한다.
 
 <center><br><span style="font-size: 85%">Table 3. YOLO 알고리즘 적용 및 좌표계 변환 후 탐지된 객체 위치 비교 결과</span><br><img src = "../images/table3.png" width="70%" height="60%" alt="YOLOv4_result"></center>
+Table 3. YOLO 알고리즘 적용 및 좌표계 변환 후 탐지된 객체 위치 비교 결과  
 
+| _n_ | _P'_ | _P*_ | _Err_(m) |
+| --- | --- | --- | --- |
+| 1 | 37.39810236995146<br>127.11284371695545 | 37.39810236995146<br>127.11284458460097 | 0.27 |
 &emsp; 위 표에서 _P'_ 는 변환된 공간 좌표계의 점을 의미하고, _P*_ 은 수직 교차점, _Err_ 는 두 점 사이의 거리를 나타낸다. 오차의 평균(Average)이 각각 0.15m의 수치를 나타내었다는 것으로 보아 객체의 위치가 거의 정확히 탐지되었음을 알 수 있다. 카메라와 멀리 떨어진 영역에서의 심한 왜곡은 보완 사항이지만, 위치 동기화의 정확도를 높이고 이를 웹 시각화까지 시도했다는 점에서 의의가 있다. <br>
 
 <center><img src = "https://github.com/fkwmqpfl01/pnu-articles/assets/82553237/eab448fa-e353-4a27-9797-d3fd4b2dec65" width="55%" height="40%" alt="C-ITS 시스템 구성"><br><span style="font-size: 85%" alt= "Transformation of coordinate system" >Figure2. 좌표계 변환 - 두 좌표계에 대한 대응점 정의<a href="#footnote_5">5</a></span></center>
