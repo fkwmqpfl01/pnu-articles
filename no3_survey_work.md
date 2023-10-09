@@ -28,10 +28,11 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 
 <center><span style="font-size: 85%">Table 1. CNN 알고리즘 적용 시 검출 성능 결과</span>
 <br><img src = "../images/table1.png"  width="80%" height="60%" alt ="CNN Performance Result"></center>  
+Table 1. CNN 알고리즘 적용 시 검출 성능 결과  
 
-| 대상 | 차량 | | |보행자 | | |
+| 대상 | | 차량  | | |보행자| |
 | --- | --- | --- | --- | --- | --- | --- |
-| 시간대 | 오전 | 오후 | 밤 | 오전 | 오후 | 밤 |
+| 시간대 | 오전  | 오후  | 밤  | 오전  | 오후  | 밤  |
 | 총량 | 168 | 157 | 170 | 130 | 128 | 36 |
 | 검출 수 |168 | 157 | 170 | 104 | 100 | 33 |
 | 검출 비율 (%) | 100 | 100 | 100 | 80.2 | 78.4 | 91.6 |  
@@ -44,7 +45,12 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 &emsp; 2021년에는 영상 분석을 위한 인공지능 기술인 YOLO(You Only Look Once) 알고리즘을 이용한 동적 객체 위치 추적에 대한 연구가 진행되었다. YOLO(Redmon,2016)는 객체 인식과 분류를 차례로 수행하는 CNN과 달리 인식과 분류를 한 번에 수행할 수 있는 모델로 실시간에 가까운 처리가 가능하다. <br>   
 &emsp; "CCTV 영상을 활용한 동적 객체의 위치 추적 및 시각화 방안" 논문에서 YOLO 알고리즘을 이용해 학습하고, 최소 사각형 형태 및 변환 행렬 기술을 통해 웹 기반 시각화까지 성공한 모습을 보여주었다. 이 연구에서는 Bochkovskiy et al.(2020)의 YOLOv4 모델 및 Kafka 서버, Python, JSON 포맷을 이용하며, 공공 데이터 포털의 개방된 CCTV 영상 데이터를 활용해 실험이 진행되었다. <br>    
 
-<center><br><span style="font-size: 85%">Table 2. YOLOv4의 AP 결과</span><br><img src = "../images/table2.png" width="70%" height="60%" alt="YOLOv4_AP_result"></center>
+<center><br><span style="font-size: 85%">Table 2. YOLOv4의 AP 결과</span><br><img src = "../images/table2.png" width="70%" height="60%" alt="YOLOv4_AP_result"></center>  
+Table 2. YOLOv4의 AP 결과  
+| | AP~0.5:0.05:0.95~ | AP~50~ | AP~75~|
+| car | 0.54 | 0.66 | 0.56 |
+| person |0.72 | 0.93 | 0.78 |
+| 평균(mAP) | 0.63 | 0.79 | 0.67 |  
 
 &emsp; 위 표를 보면 표준 정밀도인 AP의 값이 0.60-0.80 사이로 높게 나타난 모습을 확인할 수 있다. 이후 YOLO의 성능 변화 여부를 판단하기 위해 IoU<a href="#footnote_4">4</a>의 값을 0.5로 설정한 mAP<sub>50</sub>의 값을 평균 정밀도의 값으로 고려한다.
 
