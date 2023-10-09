@@ -12,7 +12,7 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 &emsp; 즉, 현재 구축된 CCTV에 이 기술을 실제로 적용한다면, 거의 모든 도로 위의 상황을 효율적으로 파악할 수 있을 것이다. 또, 자율 주행 자동차에 이 정보를 통합시킬 수 있다면 사각지대의 정보도 제공해 줄 수 있어 자율 주행 자동차의 안전성을 훨씬 높일 수 있을 것으로 기대된다. 
 
 <br> 
-<center><img src = "https://github.com/fkwmqpfl01/pnu-articles/assets/82553237/ec35419d-0930-4b71-8cdb-be09c16ae1ee" width="70%" height="40%" alt="C-ITS 시스템 구성"><br><span style="font-size: 85%">Figure1. C-ITS 시스템의 구성<a href="#footnote_3">3</a></span></center>
+<center><img src = "https://github.com/fkwmqpfl01/pnu-articles/assets/82553237/ec35419d-0930-4b71-8cdb-be09c16ae1ee" width="70%" height="40%" alt="C-ITS 시스템 구성"><br><span style="font-size: 80%">Figure1. C-ITS 시스템의 구성<a href="#footnote_3">3</a></span></center>
 
 <br>
 
@@ -26,7 +26,7 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 &emsp; 2018년에는 딥러닝을 이용해서 CCTV 영상 내의 차량 및 보행자의 수를 정확히 검출하기 위한 기술 연구가 진행된 바 있다. 기존의 영상처리 알고리즘은 조도 변화와 화질 열화에 약한 성능을 보였기에, 딥러닝 알고리즘 중 CNN(Convolutional Neural Network, 합성곱 신경망)을 이용해 CCTV 영상 기반 차량 및 보행자 계수 정확성을 향상하고자 하는 움직임이 있었다. <br>   
 &emsp; "CCTV 영상 기반 딥 러닝을 이용한 차량 및 보행자 계수 방법" 논문에 따르면, CNN을 이용해 조도 변화에 민감하지 않은 객체 검출 기술을 구현할 수 있었다고 한다. 이 연구에서는 24의 convolution layer와 2개의 fully connected layer로 구성된 Darknet의 네트워크, Visual Studio 2015와 QT를 사용하며, 2대의 CCTV를 직접 설치하여 실험이 진행되었다. 또한 설치한 CCTV로부터 추출한 시간대별 샘플 데이터 1,941개와 다른 날짜의 시간대별 샘플 데이터 195개를 이용해 검증 데이터를 구성하였다. 사용된 딥러닝 알고리즘에 대한 실험 결과는 다음 표의 내용과 같다.    
  
-Table 1. CNN 알고리즘 적용 시 검출 성능 결과  
+<span style="font-size: 80%">Table 1. CNN 알고리즘 적용 시 검출 성능 결과</span>  
 
 | 대상 | | 차량  | | |보행자| |
 | --- | --- | --- | --- | --- | :---: | --- |
@@ -43,7 +43,7 @@ Table 1. CNN 알고리즘 적용 시 검출 성능 결과
 &emsp; 2021년에는 영상 분석을 위한 인공지능 기술인 YOLO(You Only Look Once) 알고리즘을 이용한 동적 객체 위치 추적에 대한 연구가 진행되었다. YOLO(Redmon,2016)는 객체 인식과 분류를 차례로 수행하는 CNN과 달리 인식과 분류를 한 번에 수행할 수 있는 모델로 실시간에 가까운 처리가 가능하다. <br>   
 &emsp; "CCTV 영상을 활용한 동적 객체의 위치 추적 및 시각화 방안" 논문에서 YOLO 알고리즘을 이용해 학습하고, 최소 사각형 형태 및 변환 행렬 기술을 통해 웹 기반 시각화까지 성공한 모습을 보여주었다. 이 연구에서는 Bochkovskiy et al.(2020)의 YOLOv4 모델 및 Kafka 서버, Python, JSON 포맷을 이용하며, 공공 데이터 포털의 개방된 CCTV 영상 데이터를 활용해 실험이 진행되었다. <br>    
 
-Table 2. YOLOv4의 AP 결과
+<span style="font-size: 80%">Table 2. YOLOv4의 AP 결과</span>  
 
 | | AP<sub>0.5:0.05:0.95</sub> | AP<sub>50</sub> | AP<sub>75</sub>|
 | --- | :---: | --- | --- |
@@ -53,7 +53,7 @@ Table 2. YOLOv4의 AP 결과
 
 &emsp; 위 표를 보면 표준 정밀도인 AP의 값이 0.60-0.80 사이로 높게 나타난 모습을 확인할 수 있다. 이후 YOLO의 성능 변화 여부를 판단하기 위해 IoU<a href="#footnote_4">4</a>의 값을 0.5로 설정한 mAP<sub>50</sub>의 값을 평균 정밀도의 값으로 고려한다.  
   
-Table 3. YOLO 알고리즘 적용 및 좌표계 변환 후 탐지된 객체 위치 비교 결과  
+<span style="font-size: 80%">Table 3. YOLO 알고리즘 적용 및 좌표계 변환 후 탐지된 객체 위치 비교 결과</span>  
 
 | _n_ | _P'_ | _P*_ | _Err_(m) |
 | --- | --- | --- | --- |
@@ -66,7 +66,7 @@ Table 3. YOLO 알고리즘 적용 및 좌표계 변환 후 탐지된 객체 위�
 
 &emsp; 위 표에서 _P'_ 는 변환된 공간 좌표계의 점을 의미하고, _P*_ 은 수직 교차점, _Err_ 는 두 점 사이의 거리를 나타낸다. 오차의 평균(Average)이 각각 0.15m의 수치를 나타내었다는 것으로 보아 객체의 위치가 거의 정확히 탐지되었음을 알 수 있다. 카메라와 멀리 떨어진 영역에서의 심한 왜곡은 보완 사항이지만, 위치 동기화의 정확도를 높이고 이를 웹 시각화까지 시도했다는 점에서 의의가 있다. <br>
 
-<center><img src = "https://github.com/fkwmqpfl01/pnu-articles/assets/82553237/eab448fa-e353-4a27-9797-d3fd4b2dec65" width="55%" height="40%" alt="C-ITS 시스템 구성"><br><span style="font-size: 85%" alt= "Transformation of coordinate system" >Figure2. 좌표계 변환 - 두 좌표계에 대한 대응점 정의<a href="#footnote_5">5</a></span></center>
+<center><img src = "https://github.com/fkwmqpfl01/pnu-articles/assets/82553237/eab448fa-e353-4a27-9797-d3fd4b2dec65" width="55%" height="40%" alt="C-ITS 시스템 구성"><br><span style="font-size: 80%" alt= "Transformation of coordinate system" >Figure2. 좌표계 변환 - 두 좌표계에 대한 대응점 정의<a href="#footnote_5">5</a></span></center>
 
 <br>    
 
@@ -76,11 +76,10 @@ Table 3. YOLO 알고리즘 적용 및 좌표계 변환 후 탐지된 객체 위�
 &emsp; 2022년에는 YOLO와 더불어 TensorRT를 결합하여 객체 위치 추적에 대한 연구가 진행되었다. TensorRT는 모델 최적화 엔진으로 양자화, 그래프 최적화 등을 통해 연산을 최적화함으로써 딥러닝 모델의 추론 속도를 높이는 데 도움을 준다. <br>   
 &emsp; "C-ITS를 위한 CCTV 영상의 실시간 동적 객체 탐지 가속화" 논문을 보면, YOLO와 TensorRT를 함께 사용하여 동적 객체 탐지의 추론에 드는 시간을 눈에 띄게 단축했음을 알 수 있다. 이 연구에서는 YOLOv5s 모델, FP32 모델(YOLOv5s + TRT32), FP16 모델(YOLOv5s + TRT16)<a href="#footnote_6">6</a>, PyTorch를 이용하였으며, 공공 데이터 포털의 공개 데이터 6,000건을 8:1:1의 비율로 무작위로 나누어 각각을 학습, 검증, 테스트 데이터로 사용하였다.<br>      
 
-<center><br><span style="font-size: 85%">Table 4. 객체 검출 모델의 평균 정밀도 및 추론 시간 비교</span><br><img src = "../images/table4.png" width="60%" height="60%" alt="YOLOv5_result"></center>
-<span style="font-size: 85%">Table 4. 객체 검출 모델의 평균 정밀도 및 추론 시간 비교</span>  
+<span style="font-size: 80%">Table 4. 객체 검출 모델의 평균 정밀도 및 추론 시간 비교</span>  
 
 | 모델 | mAP<sub>50</sub> | 추론 시간(s) |
-| --- | --- | --- |
+| --- | --- | :---: |
 | YOLOv5 | 0.909 | 15.2 |
 | YOLOv5+TRT32 | 0.909 | 2.9 |
 | YOLOv5+TRT16 |0.907 | 1.4 |  
@@ -95,6 +94,15 @@ Table 3. YOLO 알고리즘 적용 및 좌표계 변환 후 탐지된 객체 위�
    
 <center><br><span style="font-size: 85%">Table 5. Faster R-CNN과 YOLOv5의 비교</span><br><img src = "../images/table5.png" width="90%" height="60%" alt="compare CNN and YOLO"></center>
 <br>
+
+<span style="font-size: 80%">Table 5. Faster R-CNN과 YOLOv5의 비교</span>  
+
+| Metrics | | | Faster R-CNN | | | | | YOLOv5 | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|  | ResNet50 | VGG16 | MVGG16 | Mobile-Net V2 | Inception V3 | AVG | Ys | Ym | Yl | AVG |
+| Precision(P)(%) | 91.9 | 69.8 | 81.4 | 63.1 | 72.3 | 75.7 | 76.73 | 86.96 | 86.43 | 83.37 |  
+
+
 &emsp; 위 표에서 항목의 오른쪽에 AVG를 통해 각 모델의 전체적인 평균 수치를 나타내었다. 표를 보면 YOLOv5가 Faster R-CNN에 비해 7.67% 높은 mAP값을 나타냈으며, 추론 시간 또한 YOLOv5가 Faster R-CNN에 비해 5.4배 적게 소요된다는 것을 알 수 있다. 이외에도 학습 손실이나 모델 크기 면에서도 YOLOv5가 낮은 값을 나타내며 더 좋은 성능을 보였다.  
 &emsp; 이를 통해 2018년의 CNN을 이용한 객체 탐지 방법보다 2022년의 YOLOv5를 이용한 객체 탐지 방법에서 성능 개선이 있음을 확인할 수 있다. 즉, 비교 결과를 통해 CCTV에서의 객체 위치 검출 기술이 발전하고 있음을 유추해 볼 수 있다. <br>  
 
