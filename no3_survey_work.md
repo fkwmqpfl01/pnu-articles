@@ -66,7 +66,7 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 
 &emsp; 위 표에서 _P'_ 는 변환된 공간 좌표계의 점을 의미하고, _P*_ 은 수직 교차점, _Err_ 는 두 점 사이의 거리를 나타낸다. 오차의 평균(Average)이 각각 0.15m의 수치를 나타내었다는 것으로 보아 객체의 위치가 거의 정확히 탐지되었음을 알 수 있다. 카메라와 멀리 떨어진 영역에서의 심한 왜곡은 보완 사항이지만, 위치 동기화의 정확도를 높이고 이를 웹 시각화까지 시도했다는 점에서 의의가 있다. <br>
 
-<center><img src = "https://github.com/fkwmqpfl01/pnu-articles/assets/82553237/eab448fa-e353-4a27-9797-d3fd4b2dec65" width="55%" height="40%" alt="C-ITS 시스템 구성"><br><span style="font-size: 80%" alt= "Transformation of coordinate system" >Figure2. 좌표계 변환 - 두 좌표계에 대한 대응점 정의<a href="#footnote_5">5</a></span></center>
+<center><img src = "https://github.com/fkwmqpfl01/pnu-articles/assets/82553237/eab448fa-e353-4a27-9797-d3fd4b2dec65" width="40%" height="40%" alt="C-ITS 시스템 구성"><br><span style="font-size: 80%" alt= "Transformation of coordinate system" >Figure2. 좌표계 변환 - 두 좌표계에 대한 대응점 정의<a href="#footnote_5">5</a></span></center>
 
 <br>    
 
@@ -92,9 +92,6 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 &emsp; CNN(Convolutional Neural Network, 합성곱 신경망)은 필터를 통하여 이미지에 대한 정보를 추출하고, 그 정보를 바탕으로 이미지를 인식하는 딥러닝 알고리즘 중 하나이다. 반면 YOLO(You Only Look Once)는 이미지 내에 있는 객체의 위치를 한 번만 보고도 파악할 수 있는 알고리즘이다. 따라서 인식과 분류를 한 번에 실행하는 YOLO가 CNN에 비해 처리 속도가 빠르다. 또한 최소한의 배경 오류를 이용하기에 정확도 또한 YOLO가 높다고 할 수 있다. 이는 다음 표를 보고 확인할 수 있다.<br>  
 &emsp; 객체 검출 기술 발전을 확인하기 위해 발전한 형태인 Faster R-CNN과 YOLOv5를 비교하였다. 비교 내용은 다음 표를 보고 확인할 수 있다. <br>   
    
-<center><br><span style="font-size: 85%">Table 5. Faster R-CNN과 YOLOv5의 비교</span><br><img src = "../images/table5.png" width="90%" height="60%" alt="compare CNN and YOLO"></center>
-<br>
-
 <span style="font-size: 80%">Table 5. Faster R-CNN과 YOLOv5의 비교</span>  
 
 | Metrics | | | Faster R-CNN | | | | | YOLOv5 | | |
@@ -117,6 +114,18 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 
 <center><span style="font-size: 85%"><br>Table 6. CCTV에서의 객체 위치 탐지 기술의 발전 동향 </span>
 <br><img src = "../images/table6.png"  width="80%" height="60%" alt= survey_summary1></center>
+
+<span style="font-size: 80%"><br>Table 6. CCTV에서의 객체 위치 탐지 기술의 발전 동향 </span>  
+
+| 발표 시점 | 2018.06 | 2021.06 | 2022.08 |
+| :---: |:----------------------:|:----------------------:|:----------------------:|
+| 딥러닝 모델 | CNN | YOLOv4 | YOLOv5s (+TensorRT) |
+| 개발 프레임워크 | Darknet | Darknet | Pytorch |
+| 학습 데이터 개수(개) | 17,792 | 5,250 | 4,800 |
+| 실험 데이터 개수(개) | 798 | 153 | 600 |
+| 평가 내용 | 시간대에 따른 객체 검출률(Recall) | 평균 정밀도 및 좌표계 변환 후 위치 정합도 | TensorRT 결합 여부에 따른 평균 정밀도(mAP<sub>50</sub>) 및 추론 시간 |
+| 성능 평가 | 오전 : 오후 : 밤 = 0.91 : 0.90 : 0.98 | mAP<sub>50</sub> : 0.79 <br> 위치오차평균 : 0.15m | 결합 O : 결합 X = (0.908, 2.2s) : (0.909, 15.2s)|  
+
 &emsp; CNN을 이용한 경우, 육안으로 분석한 내용을 기준으로 객체 검출 여부만을 측정하였기에 검출률 결과를 재현율<a href="#footnote_7">7</a>로만 나타낼 수 있었다. 따라서 YOLO와의 성능 비교가 어려웠기에 CNN과 YOLO를 비교해보는 작업도 수행하였다. 이를 통해 YOLO가 정밀도, 시간 측면에서 모두 발전되었음을 확인할 수 있었다. 다음은 CNN과 YOLO의 비교 내용이다. <br>
 <center><span style="font-size: 85%"><br>Table 7. Faster R-CNN과 YOLOv5의 비교</span>
 <br><img src = "../images/table7.png"  width="70%" height="60%" alt = survey_summary2></center>
