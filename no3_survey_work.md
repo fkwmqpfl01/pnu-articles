@@ -51,9 +51,8 @@ Table 2. YOLOv4의 AP 결과
 | person |0.72 | 0.93 | 0.78 |
 | 평균(mAP) | 0.63 | 0.79 | 0.67 |  
 
-&emsp; 위 표를 보면 표준 정밀도인 AP의 값이 0.60-0.80 사이로 높게 나타난 모습을 확인할 수 있다. 이후 YOLO의 성능 변화 여부를 판단하기 위해 IoU<a href="#footnote_4">4</a>의 값을 0.5로 설정한 mAP<sub>50</sub>의 값을 평균 정밀도의 값으로 고려한다.
-
-<center><br><span style="font-size: 85%">Table 3. YOLO 알고리즘 적용 및 좌표계 변환 후 탐지된 객체 위치 비교 결과</span><br><img src = "../images/table3.png" width="70%" height="60%" alt="YOLOv4_result"></center>
+&emsp; 위 표를 보면 표준 정밀도인 AP의 값이 0.60-0.80 사이로 높게 나타난 모습을 확인할 수 있다. 이후 YOLO의 성능 변화 여부를 판단하기 위해 IoU<a href="#footnote_4">4</a>의 값을 0.5로 설정한 mAP<sub>50</sub>의 값을 평균 정밀도의 값으로 고려한다.  
+  
 Table 3. YOLO 알고리즘 적용 및 좌표계 변환 후 탐지된 객체 위치 비교 결과  
 
 | _n_ | _P'_ | _P*_ | _Err_(m) |
@@ -75,9 +74,15 @@ Table 3. YOLO 알고리즘 적용 및 좌표계 변환 후 탐지된 객체 위�
 #### 3. YOLO와 TensorRT를 결합한 객체 탐지 방법
 
 &emsp; 2022년에는 YOLO와 더불어 TensorRT를 결합하여 객체 위치 추적에 대한 연구가 진행되었다. TensorRT는 모델 최적화 엔진으로 양자화, 그래프 최적화 등을 통해 연산을 최적화함으로써 딥러닝 모델의 추론 속도를 높이는 데 도움을 준다. <br>   
-&emsp; "C-ITS를 위한 CCTV 영상의 실시간 동적 객체 탐지 가속화" 논문을 보면, YOLO와 TensorRT를 함께 사용하여 동적 객체 탐지의 추론에 드는 시간을 눈에 띄게 단축했음을 알 수 있다. 이 연구에서는 YOLOv5s 모델, FP32 모델(YOLOv5s + TRT32), FP16 모델(YOLOv5s + TRT16)<a href="#footnote_6">6</a>, PyTorch를 이용하였으며, 공공 데이터 포털의 공개 데이터 6,000건을 8:1:1의 비율로 무작위로 나누어 각각을 학습, 검증, 테스트 데이터로 사용하였다.<br>    
+&emsp; "C-ITS를 위한 CCTV 영상의 실시간 동적 객체 탐지 가속화" 논문을 보면, YOLO와 TensorRT를 함께 사용하여 동적 객체 탐지의 추론에 드는 시간을 눈에 띄게 단축했음을 알 수 있다. 이 연구에서는 YOLOv5s 모델, FP32 모델(YOLOv5s + TRT32), FP16 모델(YOLOv5s + TRT16)<a href="#footnote_6">6</a>, PyTorch를 이용하였으며, 공공 데이터 포털의 공개 데이터 6,000건을 8:1:1의 비율로 무작위로 나누어 각각을 학습, 검증, 테스트 데이터로 사용하였다.<br>      
 
 <center><br><span style="font-size: 85%">Table 4. 객체 검출 모델의 평균 정밀도 및 추론 시간 비교</span><br><img src = "../images/table4.png" width="60%" height="60%" alt="YOLOv5_result"></center>
+<span style="font-size: 85%">Table 4. 객체 검출 모델의 평균 정밀도 및 추론 시간 비교</span>  
+
+| 모델 | mAP<sub>50</sub> | 추론 시간(s) |
+| YOLOv5 | 0.909 | 15.2 |
+| YOLOv5+TRT32 | 0.909 | 2.9 |
+| YOLOv5+TRT16 |0.907 | 1.4 |  
 
 &emsp; 위 표의 결과를 참고해 계산하면, TensorRT 모델의 평균 mAP<sub>50</sub>값은 0.908, 평균 추론 시간은 2.2초로 나타났음을 알 수 있다. 즉, 성능 면에서는 YOLO 모델과 YOLO + TensorRT 모델의 차이가 크지 않지만, 추론 시간의 차이는 크게 나타났음을 알 수 있다. YOLO 모델만 이용해도 90% 이상의 정확성을 보일 수 있지만 모델 최적화 엔진을 함께 사용함으로써 동적 객체 탐지 시간을 단축할 수 있음을 확인하였다는 점에서 의의가 있다. <br><br>     
 
