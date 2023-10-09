@@ -46,7 +46,7 @@ Table 1. CNN 알고리즘 적용 시 검출 성능 결과
 <center><br><span style="font-size: 85%">Table 2. YOLOv4의 AP 결과</span><br><img src = "../images/table2.png" width="70%" height="60%" alt="YOLOv4_AP_result"></center>  
 Table 2. YOLOv4의 AP 결과
 
-| | AP~ 0.5:0.05:0.95 ~ | AP~ 50 ~ | AP~ 75 ~|
+| | AP<sub>0.5:0.05:0.95</sub> | AP<sub>50</sub> | AP<sub>75</sub>|
 | --- | --- | --- | --- |
 | car | 0.54 | 0.66 | 0.56 |
 | person |0.72 | 0.93 | 0.78 |
