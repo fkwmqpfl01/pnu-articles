@@ -112,9 +112,6 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 
 &emsp; CCTV에서의 객체 위치 검출 기술의 발전 동향에 대해 조사해 본 결과, CNN과 YOLO가 핵심 기술로 사용되고 있음을 알 수 있었다. 조사 결과를 다시 한 번 표로 정리하면 다음과 같다. <br> 
 
-<center><span style="font-size: 85%"><br>Table 6. CCTV에서의 객체 위치 탐지 기술의 발전 동향 </span>
-<br><img src = "../images/table6.png"  width="80%" height="60%" alt= survey_summary1></center>
-
 <span style="font-size: 80%"><br>Table 6. CCTV에서의 객체 위치 탐지 기술의 발전 동향 </span>  
 
 | 발표 시점 | 2018.06 | 2021.06 | 2022.08 |
@@ -123,12 +120,22 @@ _요약 - 카메라 센서인 CCTV에서 동적 객체의 위치를 파악하는
 | 개발 프레임워크 | Darknet | Darknet | Pytorch |
 | 학습 데이터 개수(개) | 17,792 | 5,250 | 4,800 |
 | 실험 데이터 개수(개) | 798 | 153 | 600 |
-| 평가 내용 | 시간대에 따른 객체 검출률(Recall) | 평균 정밀도 및 좌표계 변환 후 위치 정합도 | TensorRT 결합 여부에 따른 평균 정밀도(mAP<sub>50</sub>) 및 추론 시간 |
+| 평가 내용 | 시간대에 따른 객체 검출률(Recall) | 평균 정밀도 및 좌표계 변환 후 <br>위치 정합도 | TensorRT 결합 여부에 따른 평균 정밀도 (mAP<sub>50</sub>) 및 추론 시간 |
 | 성능 평가 | 오전 : 오후 : 밤 <br>= 0.91 : 0.90 : 0.98 | mAP<sub>50</sub> : 0.79 <br> 위치오차평균 : 0.15m | 결합 O : 결합 X <br>= (0.908, 2.2s) : (0.909, 15.2s)|  
 
 &emsp; CNN을 이용한 경우, 육안으로 분석한 내용을 기준으로 객체 검출 여부만을 측정하였기에 검출률 결과를 재현율<a href="#footnote_7">7</a>로만 나타낼 수 있었다. 따라서 YOLO와의 성능 비교가 어려웠기에 CNN과 YOLO를 비교해보는 작업도 수행하였다. 이를 통해 YOLO가 정밀도, 시간 측면에서 모두 발전되었음을 확인할 수 있었다. 다음은 CNN과 YOLO의 비교 내용이다. <br>
 <center><span style="font-size: 85%"><br>Table 7. Faster R-CNN과 YOLOv5의 비교</span>
 <br><img src = "../images/table7.png"  width="70%" height="60%" alt = survey_summary2></center>
+
+<span style="font-size: 80%"><br>Table 7. Faster R-CNN과 YOLOv5의 비교</span>
+| | 비교 항목 | Faster R-CNN | YOLOv5 |
+|---| :---: | :---: | :---: |
+| 1 | Precision(P)(%) | 75.7 | 83.37 |
+| 2 | Training Loss | 0.166 | 0.017 |
+| 3 | mAP<sub>0.5-0.95</sub>(%) | 41.5 | 61.29 |
+| 4 | Inference speed(s) | 0.070 | 0.013 |
+| 5 | Training time/epoch(s) | 114 | 18 |
+| 6 | Model Size(MB) | 244.58 | 51.1 |  
 
 &emsp; 최신 기술에서는 실시간 탐지에 더 뛰어난 YOLO를 이용함으로써 성능 개선이 이루어진 것으로 보인다. CCTV에서의 객체 위치 탐지 기술은 실시간 처리가 핵심 요소이므로 앞으로도 처리 속도가 빠르며 정확도도 높은 YOLO의 개발이 이어질 것으로 생각된다. 또한, 추후 해당 데이터를 자율 주행 데이터와 통합한다면 자율 주행의 안전성에 도움을 주는 효율적인 방안이 될 것으로 기대된다. <br> <br>
 
